@@ -15,9 +15,9 @@ outputs:
   current-projects:
     description: "Projects a pull request has cards on"
     value: ${{ steps.get-current-projects.outputs.current-projects }}
+
 runs:
   using: composite
-
 
   steps:
     - id: get-current-projects
