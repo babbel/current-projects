@@ -40,11 +40,14 @@ runs:
                   }
                 }
               }
-            }' | jq -c '
-                .data.repository.pullRequest.projectCards.nodes
+            }
+          ' \
+          | jq -c '
+              .data.repository.pullRequest.projectCards.nodes
               | map({
-                databaseId,
-                name: .project.name
-              })'
+                  databaseId,
+                  name: .project.name
+                })
+            '
         )
         echo "::set-output name=current-projects::${CURRENT_PROJECTS}"
