@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: .
+      - uses: ./
         id: current-projects
       - run: |
           echo "${{ steps.current-projects.outputs.current-projects }}" | jq --exit-status 'length == 0'
