@@ -1,0 +1,14 @@
+name: Test
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        id: current-projects
+      - run: |
+          echo "${{ steps.current-projects.outputs.current-projects }}" | jq --exit-status 'length == 0'
