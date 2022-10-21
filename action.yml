@@ -50,4 +50,4 @@ runs:
                 })
             '
         )
-        echo "::set-output name=current-projects::${CURRENT_PROJECTS}"
+        echo "current-projects=${CURRENT_PROJECTS}" >> $GITHUB_OUTPUT
